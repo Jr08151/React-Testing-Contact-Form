@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
+
 const ContactForm = () => {
   const [data, setData] = useState();
   const { register, errors, handleSubmit } = useForm({
-    mode: "onBlur",
+    mode: "onBlur"
   });
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     setData(data);
   };
 
@@ -17,8 +18,8 @@ const ContactForm = () => {
           <label htmlFor="firstName">First Name*</label>
           <input
             name="firstName"
-            placeholder="Edd"
-            ref={register({ required: true, maxLength: 3 })}
+            placeholder="bill"
+            ref={register({ required: true, minLength: 3 })}
           />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
@@ -29,7 +30,7 @@ const ContactForm = () => {
           <label htmlFor="lastName">Last Name*</label>
           <input
             name="lastName"
-            placeholder="Burke"
+            placeholder="luo"
             ref={register({ required: true })}
           />
           {errors.lastName && (
